@@ -19,4 +19,4 @@ jobs:
           # echo "Port 722" >> ~/.ssh/config
           # echo "User mckatoo" >> ~/.ssh/config
           # git remote add prod githost:/containers/uniesi/uniesiDocker.git
-          # git pull prod master
+          git pull prod master
