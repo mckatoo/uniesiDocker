@@ -7,7 +7,7 @@ services:
     depends_on:
       - api
     volumes:
-      - ./web:/app/web
+      - ../uniesiWeb:/app/web
     deploy:
       restart_policy:
         condition: on-failure
@@ -21,9 +21,9 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_HOST=db
+      - DATABASE_HOST=${DATABASE_HOST}
     volumes:
-      - ./api:/app/api
+      - ../uniesiApi:/app/api
     deploy:
       restart_policy:
         condition: on-failure
@@ -31,7 +31,13 @@ services:
         max_attempts: 3
         window: 120s
   db:
-    build: ./database-service
+    build:
+      context: ./database-service
+      args:
+        MYSQL_ROOT_PASSWORD: ${MYSQLPWD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     command: --default-authentication-plugin=mysql_native_password
     deploy:
       restart_policy:
