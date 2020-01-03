@@ -14,8 +14,8 @@ jobs:
           mkdir ~/.ssh
           touch ~/.ssh/config
           echo "Host githost" >> ~/.ssh/config
-          echo "HostName campus1-iesi.ddns.net" >> ~/.ssh/config
-          echo "Port 722 >> ~/.ssh/config
-          echo "User mckatoo" >> ~/.ssh/config
+          # echo "HostName campus1-iesi.ddns.net" >> ~/.ssh/config
+          # echo "Port 722 >> ~/.ssh/config
+          # echo "User mckatoo" >> ~/.ssh/config
           # git remote add prod githost:/containers/uniesi/uniesiDocker.git
           # git pull prod master
