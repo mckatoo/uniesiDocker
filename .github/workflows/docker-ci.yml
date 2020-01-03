@@ -12,6 +12,7 @@ jobs:
         if: success()
         run: |
           mkdir ~/.ssh
+          touch ~/.ssh/config
           # echo "Host githost" >> ~/.ssh/config
           # echo "HostName campus1-iesi.ddns.net" >> ~/.ssh/config
           # echo "Port 722 >> ~/.ssh/config
