@@ -1,6 +1,6 @@
 # UniesiDocker
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/mckatoo/uniesidocker/Node%20CI/master)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/mckatoo/uniesidocker/CI/master)
 ![GitHub repo size](https://img.shields.io/github/repo-size/mckatoo/uniesidocker)
 ![GitHub All Releases](https://img.shields.io/github/downloads/mckatoo/uniesidocker/total)
 ![GitHub issues](https://img.shields.io/github/issues/mckatoo/uniesidocker)
