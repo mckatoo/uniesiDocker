@@ -5,6 +5,9 @@ name: docker-compose
 steps:
   - name: deploy
     image: docker
+    volumes:
+      - name: docker_socket
+        path: /var/run/docker.sock
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
