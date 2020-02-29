@@ -4,7 +4,7 @@ name: docker-compose
 
 steps:
   - name: deploy
-    image: swarm
+    image: docker
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
