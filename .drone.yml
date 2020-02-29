@@ -24,7 +24,7 @@ steps:
     #   REACT_APP_API_HOST: "http://campus1-iesi.ddns.net"
     #   REACT_APP_API_PORT: 8000
     #   REACT_PORT: 3000
-    commands:
-    - exit 0
-      # - docker swarm init
-      # - docker stack deploy -c docker-compose.yml teste
+    # commands:
+    # - exit 0
+    # - docker swarm init
+    # - docker stack deploy -c docker-compose.yml teste
