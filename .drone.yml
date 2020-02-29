@@ -1,5 +1,4 @@
 kind: pipeline
-type: exec
 name: docker-compose
 
 platform:
@@ -8,7 +7,6 @@ platform:
 
 steps:
   - name: deploy
-    shell: /bin/sh
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
