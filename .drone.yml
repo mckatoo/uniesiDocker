@@ -4,10 +4,7 @@ name: docker-compose
 
 steps:
   - name: deploy
-    image: docker
-    volumes:
-      - name: docker_socket
-        path: /var/run/docker.sock
+    image: swarm
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
@@ -31,8 +28,3 @@ steps:
     commands:
       - docker swarm init
       - docker stack deploy -c docker-compose.yml teste
-
-volumes:
-  - name: docker_socket
-    host:
-      path: /var/run/docker.sock
