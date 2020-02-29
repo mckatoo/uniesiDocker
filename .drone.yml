@@ -1,13 +1,8 @@
 kind: pipeline
-name: docker-compose
-
-platform:
-  os: linux
-  arch: amd64
+type: exec
 
 steps:
   - name: deploy
-    image: docker
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
