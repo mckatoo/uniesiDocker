@@ -1,6 +1,6 @@
 # UniesiDocker
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/mckatoo/uniesidocker/CI/master)
+[![Build Status](http://drone.ikatoo.com.br/api/badges/mckatoo/uniesiDocker/status.svg)](http://drone.ikatoo.com.br/mckatoo/uniesiDocker)
 ![GitHub repo size](https://img.shields.io/github/repo-size/mckatoo/uniesidocker)
 ![GitHub All Releases](https://img.shields.io/github/downloads/mckatoo/uniesidocker/total)
 ![GitHub issues](https://img.shields.io/github/issues/mckatoo/uniesidocker)

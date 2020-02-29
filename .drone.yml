@@ -1,0 +1,9 @@
+kind: pipeline
+type: exec
+name: docker-compose
+
+steps:
+  - name: build
+    commands:
+      - docker swarm init
+      - docker stack deploy -c docker-compose.yml teste
