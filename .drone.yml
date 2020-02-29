@@ -8,26 +8,27 @@ platform:
 
 steps:
   - name: deploy
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
-    #   MYSQL_DATABASE: db_test
-    #   MYSQL_USER: uniesi
-    #   MYSQL_PASSWORD: $MYSQL_ROOT_PASSWORD
-    #   DB_DIALECT: mariadb
-    #   DB_NAME: $MYSQL_DATABASE
-    #   DB_HOST: dblb
-    #   DB_PORT: 3306
-    #   DB_USER: $MYSQL_USER
-    #   DB_PASS: $MYSQL_PASSWORD
-    #   DB_TIMEZONE: America/Sao_Paulo
-    #   APP_PORT: 8000
-    #   APP_SECURE_PORT: 8443
-    #   APP_SECRET: TESTE1cvcvcsdf545423
-    #   STORAGE_TYPE: local
-    #   BUCKET_NAME: ""
-    #   REACT_APP_API_HOST: "http://campus1-iesi.ddns.net"
-    #   REACT_APP_API_PORT: 8000
-    #   REACT_PORT: 3000
+    shell: /bin/sh
+    environment:
+      MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
+      MYSQL_DATABASE: db_test
+      MYSQL_USER: uniesi
+      MYSQL_PASSWORD: $MYSQL_ROOT_PASSWORD
+      DB_DIALECT: mariadb
+      DB_NAME: $MYSQL_DATABASE
+      DB_HOST: dblb
+      DB_PORT: 3306
+      DB_USER: $MYSQL_USER
+      DB_PASS: $MYSQL_PASSWORD
+      DB_TIMEZONE: America/Sao_Paulo
+      APP_PORT: 8000
+      APP_SECURE_PORT: 8443
+      APP_SECRET: TESTE1cvcvcsdf545423
+      STORAGE_TYPE: local
+      BUCKET_NAME: ""
+      REACT_APP_API_HOST: "http://campus1-iesi.ddns.net"
+      REACT_APP_API_PORT: 8000
+      REACT_PORT: 3000
     commands:
       - echo hello world
     # - docker swarm init
