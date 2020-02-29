@@ -25,5 +25,6 @@ steps:
       REACT_APP_API_PORT: 8000
       REACT_PORT: 3000
     commands:
-      - docker swarm init
-      - docker stack deploy -c docker-compose.yml teste
+      - echo hello world
+      # - docker swarm init
+      # - docker stack deploy -c docker-compose.yml teste
