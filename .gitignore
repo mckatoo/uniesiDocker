@@ -1,1 +1,8 @@
 .env
+api/**
+web/**
+test/*
+.vscode
+
+#Exceptions
+!test.sh

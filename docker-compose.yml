@@ -1,0 +1,108 @@
+version: "3.7"
+
+networks:
+  backend:
+  frontend:
+
+services:
+  dbcluster:
+    image: toughiq/mariadb-cluster
+    networks:
+      - backend
+    deploy:
+      # replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 180s
+      update_config:
+        parallelism: 1
+        delay: 3m
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    command: [--default-authentication-plugin=mysql_native_password]
+
+  dblb:
+    image: toughiq/maxscale
+    networks:
+      - backend
+    ports:
+      - 3306:3306
+    environment:
+      DB_SERVICE_NAME: dbcluster
+      ENABLE_ROOT_USER: 1
+    depends_on:
+      - dbcluster
+    deploy:
+      # replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 3
+        window: 180s
+      update_config:
+        parallelism: 1
+        delay: 3m
+
+  api:
+    image: node:13.8.0
+    user: node
+    working_dir: /home/node/app
+    volumes:
+      - ./api:/home/node/app
+    networks:
+      - backend
+      - frontend
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+      - dblb
+    environment:
+      DB_DIALECT: ${DB_DIALECT}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_TIMEZONE: ${DB_TIMEZONE}
+      APP_PORT: ${APP_PORT}
+      APP_SECURE_PORT: ${APP_SECURE_PORT}
+      APP_SECRET: ${APP_SECRET}
+      STORAGE_TYPE: ${STORAGE_TYPE}
+      BUCKET_NAME: ${BUCKET_NAME}
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 6
+        window: 120s
+    command: bash -c "sleep 60 && rm -rf uniesiapi && git clone https://github.com/mckatoo/uniesiapi && cd uniesiapi && yarn && yarn migrate && node ./src/server.js"
+
+  web:
+    image: node:13.8.0
+    user: node
+    working_dir: /home/node/app
+    volumes:
+      - ./web:/home/node/app
+    ports:
+      - "${REACT_PORT}:${REACT_PORT}"
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - api
+    environment:
+      REACT_APP_API_HOST: api
+      REACT_APP_API_PORT: ${APP_PORT}
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    command: bash -c "sleep 120 && rm -rf uniesiweb && git clone https://github.com/mckatoo/uniesiweb && cd uniesiweb && yarn && yarn start"
