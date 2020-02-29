@@ -2,17 +2,9 @@ kind: pipeline
 type: docker
 name: docker-compose
 
-# volumes:
-#   - name: docker_socket
-#     host:
-#       path: /var/run/docker.sock
-
 steps:
   - name: deploy
     image: swarm
-    # volumes:
-    #   - name: docker_socket
-    #     path: /var/run/docker.sock
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
@@ -34,6 +26,5 @@ steps:
       REACT_APP_API_PORT: 8000
       REACT_PORT: 3000
     commands:
-      - echo hello world
-    # - docker swarm init
-    # - docker stack deploy -c docker-compose.yml teste
+      - docker swarm init
+      - docker stack deploy -c docker-compose.yml teste
