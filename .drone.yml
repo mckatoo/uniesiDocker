@@ -1,5 +1,6 @@
 kind: pipeline
 type: exec
+name: docker-compose
 
 steps:
   - name: deploy
@@ -24,6 +25,6 @@ steps:
       REACT_APP_API_PORT: 8000
       REACT_PORT: 3000
     commands:
-      - echo hello world
+      - echo hello world && exit 0 || exit 1
     # - docker swarm init
     # - docker stack deploy -c docker-compose.yml teste
