@@ -2,10 +2,10 @@ kind: pipeline
 type: docker
 name: docker-compose
 
-volumes:
-  - name: docker_socket
-    host:
-      path: /var/run/docker.sock
+# volumes:
+#   - name: docker_socket
+#     host:
+#       path: /var/run/docker.sock
 
 steps:
   - name: deploy
