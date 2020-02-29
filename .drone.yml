@@ -1,4 +1,5 @@
 kind: pipeline
+type: docker
 name: docker-compose
 
 volumes:
@@ -9,9 +10,9 @@ volumes:
 steps:
   - name: deploy
     image: docker
-      volumes:
-        - name: docker_socket
-          path: /var/run/docker.sock
+    volumes:
+      - name: docker_socket
+        path: /var/run/docker.sock
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
