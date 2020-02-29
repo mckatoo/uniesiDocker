@@ -9,7 +9,7 @@ volumes:
 
 steps:
   - name: deploy
-    image: docker
+    image: swarm
     volumes:
       - name: docker_socket
         path: /var/run/docker.sock
