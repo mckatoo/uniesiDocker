@@ -24,13 +24,14 @@ steps:
       REACT_APP_API_HOST: "http://127.0.0.1"
       REACT_APP_API_PORT: ${APP_PORT}
       REACT_PORT: 3000
+      DRONE_TIMEOUT: 3m
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
       - docker stack rm teste
       - sleep 15 && docker stack deploy -c docker-compose.yml teste
-      - sleep 480 && docker run -t --network=host curlimages/curl curl -f http://127.0.0.1:3000 || exit 1
+      - sleep 240 && docker run -t --network=host curlimages/curl curl -f http://127.0.0.1:3000 || exit 1
 
 volumes:
   - name: dockersock
