@@ -31,7 +31,6 @@ steps:
     commands:
       - docker stack rm teste
       - sleep 15 && docker stack deploy -c docker-compose.yml teste
-      - docker stats
 
 volumes:
   - name: dockersock
