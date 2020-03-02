@@ -81,7 +81,7 @@ services:
         delay: 5s
         max_attempts: 6
         window: 120s
-    command: bash -c "sleep 90 && rm -rvf uniesiapi && git clone https://github.com/mckatoo/uniesiapi && cd uniesiapi && yarn && yarn migrate && node ./src/server.js"
+    command: bash -c "sleep 60 && rm -rvf uniesiapi && git clone https://github.com/mckatoo/uniesiapi && cd uniesiapi && yarn && yarn migrate && node ./src/server.js"
 
   web:
     image: node:13.8.0
@@ -105,4 +105,4 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-    command: bash -c "sleep 120 && rm -rvf uniesiweb && git clone https://github.com/mckatoo/uniesiweb && cd uniesiweb && yarn && yarn start"
+    command: bash -c "sleep 80 && rm -rvf uniesiweb && git clone https://github.com/mckatoo/uniesiweb && cd uniesiweb && yarn && yarn start"
