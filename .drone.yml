@@ -28,7 +28,6 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
-      - docker swarm init
       - docker stack deploy -c docker-compose.yml teste
 
 volumes:
