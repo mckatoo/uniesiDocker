@@ -29,6 +29,8 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker stack deploy -c docker-compose.yml teste
+      - apt-get -qq update
+      - apt-get -qq -y install curl
       - curl -f http://127.0.0.1 || exit 1
 
 volumes:
