@@ -29,7 +29,8 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker stack deploy -c docker-compose.yml teste
-      - docker exec -ti teste.web curl -f http://127.0.0.1:3000 || exit 1
+      - docker ps
+      # - docker exec -ti teste.web curl -f http://127.0.0.1:3000 || exit 1
 
 volumes:
   - name: dockersock
