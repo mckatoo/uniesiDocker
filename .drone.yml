@@ -3,7 +3,7 @@ name: docker-compose
 
 steps:
   - name: test
-    image: docker:dind
+    image: docker
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
