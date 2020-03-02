@@ -4,6 +4,7 @@ name: docker-compose
 steps:
   - name: test
     image: docker:dind
+    failure: ignore
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
@@ -24,7 +25,6 @@ steps:
       REACT_APP_API_HOST: "http://127.0.0.1"
       REACT_APP_API_PORT: ${APP_PORT}
       REACT_PORT: 3000
-      DRONE_TIMEOUT: 3m
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
