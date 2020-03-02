@@ -4,7 +4,7 @@ name: docker-compose
 steps:
   - name: test
     image: docker:dind
-    failure: ignore
+    privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
