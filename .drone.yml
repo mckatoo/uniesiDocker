@@ -27,11 +27,9 @@ steps:
     volumes:
       - name: dockersock
         path: /var/run/docker.sock
-      - name: curl
-        path: /usr/bin/curl
     commands:
       - docker stack deploy -c docker-compose.yml teste
-      - curl -f http://127.0.0.1:3000 || exit 1
+      - docker run -rm -t curlimages/curl curl -f http://127.0.0.1:3000 || exit 1
 
 volumes:
   - name: dockersock
