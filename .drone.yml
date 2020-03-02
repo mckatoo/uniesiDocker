@@ -29,6 +29,7 @@ steps:
       - name: dockersock
         path: /var/run/docker.sock
     commands:
+      - mkdir api
       - docker stack rm teste
       - sleep 15 && docker stack deploy -c docker-compose.yml teste
       - sleep 15 && docker stack ps teste
