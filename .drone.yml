@@ -30,7 +30,7 @@ steps:
     commands:
       - docker stack rm teste
       - sleep 15 && docker stack deploy -c docker-compose.yml teste
-      - sleep 240 && docker run -t --network=host curlimages/curl curl -f http://127.0.0.1:3000 || exit 1
+      - sleep 480 && docker run -t --network=host curlimages/curl curl -f http://127.0.0.1:3000 || exit 1
 
 volumes:
   - name: dockersock
