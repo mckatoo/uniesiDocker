@@ -3,7 +3,7 @@ name: docker-compose
 
 steps:
   - name: test
-    image: docker
+    image: docker:dind
     environment:
       MYSQL_ROOT_PASSWORD: asfsjdflksjdfh
       MYSQL_DATABASE: db_test
@@ -29,9 +29,7 @@ steps:
         path: /var/run/docker.sock
     commands:
       - docker stack deploy -c docker-compose.yml teste
-      - apt-get -qq update
-      - apt-get -qq -y install curl
-      - curl -f http://127.0.0.1 || exit 1
+      - docker exec -ti teste.web curl -f http://127.0.0.1:3000 || exit 1
 
 volumes:
   - name: dockersock
