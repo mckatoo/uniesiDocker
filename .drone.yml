@@ -25,6 +25,7 @@ steps:
       REACT_APP_API_HOST: "http://127.0.0.1"
       REACT_APP_API_PORT: ${APP_PORT}
       REACT_PORT: 3000
+      CORS: ${CORS}
     volumes:
       - name: dockersock
         path: /var/run/docker.sock

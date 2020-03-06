@@ -74,6 +74,7 @@ services:
       APP_SECRET: ${APP_SECRET}
       STORAGE_TYPE: ${STORAGE_TYPE}
       BUCKET_NAME: ${BUCKET_NAME}
+      CORS: ${CORS}
       APP_ENV: dev
     deploy:
       replicas: 1
